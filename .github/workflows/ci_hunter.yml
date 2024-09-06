@@ -25,8 +25,7 @@ jobs:
 
       # Step 5: Run Newman with the collection and environment files
       - name: Run API tests with Newman and HTML Extra
-        run: |
-          newman run ./tests/Hunter_collection.postman_test_run.json -e ./tests/desenvolvimento.postman_environment.json \
+        run: newman run ./tests/Hunter_collection.postman_test_run.json -e ./tests/desenvolvimento.postman_environment.json \
           --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/report.html
 
       # Step 6: Upload the HTML report as an artifact
