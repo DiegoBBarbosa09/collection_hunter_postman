@@ -28,6 +28,7 @@ jobs:
         run: |
           newman --version
           node --version
+          newman-reporter-htmlextra -version
           
       # Step 6: Run Newman with the collection and environment files
       - name: Run API tests with Newman and HTML Extra
