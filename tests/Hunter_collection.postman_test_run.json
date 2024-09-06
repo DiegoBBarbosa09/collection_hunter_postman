@@ -1,6 +1,7 @@
 {
   "info": {
-    "name": "Teste Api Hunter"    
+    "name": "Teste Api Hunter",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
 {
 	"id": "0fa6d455-9dc8-4a84-b075-b65e6dd6c328",
