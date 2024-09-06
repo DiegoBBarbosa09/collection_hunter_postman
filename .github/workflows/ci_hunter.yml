@@ -11,9 +11,9 @@ jobs:
 
       # Step 2: Install Node.js (needed for Newman)
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'  # Verifique a versão necessária
+          node-version: '20'  # Verifique a versão necessária
 
       # Step 3: Install Newman and HTML Extra reporter
       - name: Install Newman
@@ -34,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: api-test-html-report
-          path: ./tests/report.html
+          path: ./tests/report/report.html
