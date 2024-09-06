@@ -23,12 +23,18 @@ jobs:
       - name: Install Report html extra
         run: sudo npm install -g newman-reporter-htmlextra          
 
-      # Step 5: Run Newman with the collection and environment files
+      # Step 5: Checks versions
+      - name: Check version Newman and Node
+        run: |
+          newman --version
+          node --version
+          
+      # Step 6: Run Newman with the collection and environment files
       - name: Run API tests with Newman and HTML Extra
         run: newman run ./Hunter_collection.postman_test_run.json -e ./desenvolvimento.postman_environment.json \
           --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/report.html
 
-      # Step 6: Upload the HTML report as an artifact
+      # Step 7: Upload the HTML report as an artifact
       - name: Upload test reports
         uses: actions/upload-artifact@v4
         with:
