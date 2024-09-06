@@ -16,18 +16,20 @@ jobs:
           node-version: '18'  # Verifique a versão necessária
 
       # Step 3: Install Newman and HTML Extra reporter
-      - name: Install Newman and HTML Extra
-        run: |
-          npm install -g newman
-          npm install -g newman-reporter-htmlextra@1.23.1
+      - name: Install Newman
+        run: npm install -g newman
 
-      # Step 4: Run Newman with the collection and environment files
+      # Step 4: Install Repost    
+      - name: Install Report html extra
+        run: sudo npm install -g newman-reporter-htmlextra          
+
+      # Step 5: Run Newman with the collection and environment files
       - name: Run API tests with Newman and HTML Extra
         run: |
           newman run ./tests/Hunter_collection.postman_test_run.json -e ./tests/desenvolvimento.postman_environment.json \
           --reporters cli, -r htmlextra --reporter-htmlextra-export ./tests/report/report.html
 
-      # Step 5: Upload the HTML report as an artifact
+      # Step 6: Upload the HTML report as an artifact
       - name: Upload test reports
         uses: actions/upload-artifact@v3
         with:
