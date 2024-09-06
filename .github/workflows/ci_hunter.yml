@@ -27,11 +27,11 @@ jobs:
       - name: Run API tests with Newman and HTML Extra
         run: |
           newman run ./tests/Hunter_collection.postman_test_run.json -e ./tests/desenvolvimento.postman_environment.json \
-          --reporters cli, -r htmlextra --reporter-htmlextra-export ./tests/report/report.html
+          --reporters cli, -r htmlextra --reporter-htmlextra-export ./report/report.html
 
       # Step 6: Upload the HTML report as an artifact
       - name: Upload test reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: api-test-html-report
-          path: ./tests/report/report.html
+          path: ./report/report.html
